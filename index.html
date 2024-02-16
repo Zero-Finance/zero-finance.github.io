@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <title>ZeroFinance</title>
+
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <script src="./node_modules/web3/dist/web3.min.js"></script>
+    <script src="./index.js"></script>
+  </head>
+
+  <body class="container">
+
+    <h1 class="page-header">ZeroFinance: A zero interest lending pool</h1>
+
+    <h2>Borrower</h2>
+
+    <div class="row">
+      <div>
+        <h3 class="sub-header">Deposit Collateral</h3>
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <table>
+              <tr>
+                <td><label for="collateral">Collateral Amount:</label> </td>
+                <td>
+                  <input class="form-control" id="collateral">
+                </td>
+                <td><label for="borrow">Borrow Amount:</label> </td>
+                <td>
+                  <input class="form-control" id="borrow">
+                </td>
+              </tr>
+            </table>
+          </div>
+          <a href="#" onclick="zerofinanceDepositCollateral()" class="btn btn-primary">Deposit</a>
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+        <div>
+          <h3 class="sub-header">Withdraw Collateral</h3>
+          <form class="form-inline" role="form">
+            <div class="form-group">
+              <table>
+                <tr>
+                  <td><label for="withdrawAmount">Amount:</label> </td>
+                  <td>
+                    <input class="form-control" id="withdrawAmount">
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <a href="#" onclick="zerofinanceWithdrawCollateral()" class="btn btn-primary">Withdraw</a>
+          </form>
+        </div>
+      </div>
+
+
+    <div class="row">
+        <div>
+          <h3 class="sub-header">Borrow USDB</h3>
+          <form class="form-inline" role="form">
+            <div class="form-group">
+              <table>
+                <tr>
+                  <td><label for="borrowAmount">Amount:</label> </td>
+                  <td>
+                    <input class="form-control" id="borrowAmount">
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <a href="#" onclick="zerofinanceBorrow()" class="btn btn-primary">Borrow</a>
+          </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div>
+          <h3 class="sub-header">Repay USDB</h3>
+          <form class="form-inline" role="form">
+            <div class="form-group">
+              <table>
+                <tr>
+                  <td><label for="repayAmount">Amount:</label> </td>
+                  <td>
+                    <input class="form-control" id="repayAmount">
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <a href="#" onclick="zerofinanceRepayBorrowedUSDB()" class="btn btn-primary">Repay</a>
+          </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div>
+          <h3 class="sub-header">Deposited Collateral</h3>
+          <form class="form-inline" role="form">
+            <a href="#" onclick="zerofinanceGetUserCollateral()" class="btn btn-primary">Get</a>
+            <br>
+            <div class="form-group">
+              <table>
+                <tr>
+                  <td>Amount:</td>
+                  <td>
+                    <label id="collateralDeposited">
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    <h2>Liquidity Provider</h2>
+
+    <div class="row">
+        <div>
+          <h3 class="sub-header">Provide USDB In Liquidity Pool</h3>
+          <form class="form-inline" role="form">
+            <div class="form-group">
+              <table>
+                <tr>
+                  <td><label for="liquidityAmount">Amount:</label> </td>
+                  <td>
+                    <input class="form-control" id="liquidityAmount">
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <a href="#" onclick="zerofinanceProvideLiquidityUSDB()" class="btn btn-primary">Deposit</a>
+          </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div>
+          <h3 class="sub-header">Withdraw USDB From Liquidity Pool</h3>
+          <form class="form-inline" role="form">
+            <a href="#" onclick="zerofinanceWithdrawLiquidityUSDB()" class="btn btn-primary">Withdraw</a>
+          </form>
+        </div>
+    </div>
+
+    <h2>Liquiditation</h2>
+    <div class="row">
+        <div>
+          <h3 class="sub-header">Liquidate A Borrower If Collateral Ratio Reached Below 115%</h3>
+          <form class="form-inline" role="form">
+            <div class="form-group">
+              <table>
+                <tr>
+                  <td><label for="borrowerAddress">Amount:</label> </td>
+                  <td>
+                    <input class="form-control" id="borrowerAddress">
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <a href="#" onclick="zerofinanceLiquidation()" class="btn btn-primary">Liquidate</a>
+          </form>
+        </div>
+    </div>
+
+    <!-- <div class="row">
+      <div>
+        <h3 class="sub-header">Get USDB Address</h3>
+        <form class="form-inline" role="form">
+          <a href="#" onclick="zerofinanceGetUSDB()" class="btn btn-primary">Get</a>
+          <br>
+          <div class="form-group">
+            <table>
+              <tr>
+                <td>Address:</td>
+                <td>
+                  <label id="lastInfo">
+                </td>
+              </tr>
+            </table>
+          </div>
+        </form>
+      </div>
+    </div> -->
+
+  </body>
+</html>
