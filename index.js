@@ -157,9 +157,10 @@ function zerofinanceLiquidation() {
 }
 
 function zerofinanceGetUserCollateral() {
+    const borrower = $("#depositerAddress").val();
     try {
         // Call the USDB function asynchronously
-        contract.userCollateral.call(account, function(error, info) {
+        contract.userCollateral.call(borrower, function(error, info) {
             if (error) {
                 console.error("Error: ", error);
             } else {
